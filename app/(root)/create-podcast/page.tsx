@@ -55,6 +55,8 @@ const CreatePodcast = () => {
   const [voiceType, setVoiceType] = useState<string | null>(null);
   const [voicePrompt, setVoicePrompt] = useState('');
   
+  const [publicLink, setPublicLink] = useState('');
+  
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const createPodcast = useMutation(api.podcasts.createPodcast)
@@ -88,6 +90,7 @@ const CreatePodcast = () => {
         voiceType,
         imagePrompt,
         voicePrompt,
+        publicLink,
         views: 0,
         audioDuration,
         audioStorageId: audioStorageId!,
@@ -173,6 +176,8 @@ const CreatePodcast = () => {
                 setAudio={setAudioUrl}
                 voiceType={voiceType!}
                 audio={audioUrl}
+                publicLink={publicLink}
+                setPublicLink={setPublicLink}
                 voicePrompt={voicePrompt}
                 setVoicePrompt={setVoicePrompt}
                 setAudioDuration={setAudioDuration}

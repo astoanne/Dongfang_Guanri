@@ -50,7 +50,23 @@ const PodcastDetails = ({ params: { podcastId } }: { params: { podcastId: Id<'po
       <div className="flex flex-col gap-8">
         <div className='flex flex-col gap-4'>
           <h1 className='text-18 font-bold text-white-1'>Transcription</h1>
-          <p className="text-16 font-medium text-white-2">{podcast?.voicePrompt}</p>
+          <p className="text-16 font-medium text-white-2">
+            {podcast?.voicePrompt}
+            {/* Show hyperlink only if publicLink is present */}
+            {podcast?.publicLink && (
+              <>
+                {' '}
+                <a
+                  href={podcast.publicLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-500 underline"
+                >
+                  (view full content)
+                </a>
+              </>
+            )}
+          </p>
         </div>
         {/* <div className='flex flex-col gap-4'>
           <h1 className='text-18 font-bold text-white-1'>Thumbnail Prompt</h1>
