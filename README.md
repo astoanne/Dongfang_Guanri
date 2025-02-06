@@ -1,1 +1,1 @@
-Podcast app for Dongfang - Translated by GuanRi
+Podcast application for Dongfang - Translated by GuanRi
