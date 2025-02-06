@@ -12,20 +12,18 @@ const PodcastCard = ({
   podcastId
 }: PodcastCardProps) => {
   const router = useRouter()
-  const updatePodcastViews = useMutation(api.podcasts.updatePodcastViews);
-  
+  const updatePodcastViews = useMutation(api.podcasts.updatePodcastViews); 
   const handleViews = async () => { 
     try {
-        // Ensure the mutation is called with the correct structure
+        // ✅ Call mutation with correct argument structure
         await updatePodcastViews({ podcastId });
 
-        // Navigate to the podcast detail page
+        // ✅ Navigate to the podcast detail page
         router.push(`/podcasts/${podcastId}`, { scroll: true });
     } catch (error) {
         console.error("Failed to update views:", error);
     }
-};
-};
+  };
 
   return (
     <div className="cursor-pointer" onClick={handleViews}>
